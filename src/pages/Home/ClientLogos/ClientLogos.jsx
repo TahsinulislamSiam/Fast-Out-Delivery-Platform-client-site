@@ -17,7 +17,7 @@ const ClientLogos = () => {
       <div className="max-w-7xl mx-auto px-4 space-y-8">
 
         {/* Section Title */}
-        <h2 className="text-3xl font-bold text-center">
+        <h2 className="text-3xl font-bold text-center mb-15">
           Trusted by Our Clients
         </h2>
 
@@ -30,12 +30,12 @@ const ClientLogos = () => {
           {logos.map((logo, idx) => (
             <div
               key={idx}
-              className="mx-12 flex items-center justify-center"
+              className="mx-24 flex items-center justify-center"
             >
               <img
                 src={logo}
-                alt="client logo"
-                className="h-16 object-contain grayscale hover:grayscale-0 transition duration-300"
+                alt={`Client logo ${idx+1}`}
+                className="h-7 object-contain"
               />
             </div>
           ))}
