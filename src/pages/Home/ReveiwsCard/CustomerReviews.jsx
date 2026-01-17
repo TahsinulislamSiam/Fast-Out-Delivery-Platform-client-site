@@ -68,10 +68,10 @@ const reviews = [
 
 const CustomerReviews = () => {
   return (
-    <section className="py-20 bg-base-100">
+    <section className="py-20 bg-lime-100 rounded-2xl mt-4">
       <div className="max-w-7xl mx-auto px-4 space-y-10">
 
-        {/* Heading */}
+       
         <div className="text-center space-y-4">
           <h2 className="text-3xl font-bold">
             What our customers are saying
@@ -82,7 +82,7 @@ const CustomerReviews = () => {
           </p>
         </div>
 
-        {/* Reviews slider */}
+       
         <Marquee
           speed={40}
           pauseOnHover

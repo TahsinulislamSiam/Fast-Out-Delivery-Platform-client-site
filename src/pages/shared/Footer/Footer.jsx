@@ -4,7 +4,7 @@ import FastOutLogo from '../fastOutLogo/fastOutLogo';
 const Footer = () => {
     return (
         <div>
-            <footer className="footer footer-horizontal footer-center bg-base-300 text-base-content  p-10">
+            <footer className="footer footer-horizontal footer-center rounded-2xl bg-lime-100 text-base-content  p-10">
   <aside>
         <FastOutLogo></FastOutLogo>
     <p className="font-bold">

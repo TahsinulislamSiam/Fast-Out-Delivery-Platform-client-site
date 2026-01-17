@@ -13,7 +13,7 @@ const logos = [logo1, logo2, logo3, logo4, logo5, logo6, logo7];
 
 const ClientLogos = () => {
   return (
-    <section className="py-16 bg-base-200">
+    <section className="py-16 bg-lime-100 rounded-2xl">
       <div className="max-w-7xl mx-auto px-4 space-y-8">
 
         {/* Section Title */}

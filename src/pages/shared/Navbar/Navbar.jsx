@@ -4,8 +4,12 @@ import FastOutLogo from '../fastOutLogo/fastOutLogo';
 
 const Navbar = () => {
     const navItem = <>
-         <li><NavLink>Home</NavLink></li>
-        <li><NavLink>About us</NavLink></li>
+         <li className='hover:bg-lime-200'><NavLink>Home</NavLink></li>
+         <li className='hover:bg-lime-200'><NavLink>Service</NavLink></li>
+         <li className='hover:bg-lime-200'><NavLink>Coverage</NavLink></li>
+         <li className='hover:bg-lime-200'><NavLink>About us</NavLink></li>
+         <li className='hover:bg-lime-200'><NavLink>Pricing</NavLink></li>
+         <li className='hover:bg-lime-200'><NavLink>Vlogs</NavLink></li>
     </>
     return (
         <div className="navbar bg-base-100 shadow-sm">
@@ -25,12 +29,13 @@ const Navbar = () => {
     </a>
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
+    <ul className="menu  menu-horizontal px-1">
     {navItem}
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn">Button</a>
+  <div className="navbar-end gap-3">
+    <a className="btn bg-emerald-100 rounded-2xl">Sign in</a>
+    <a className="btn bg-lime-300">LogIn</a>
   </div>
 </div>
     );
