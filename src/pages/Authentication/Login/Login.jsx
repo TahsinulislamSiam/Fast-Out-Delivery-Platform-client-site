@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 const Login = () => {
-    const {register, handleSubmit} = useForm()
+    const {register, handleSubmit, formState:{errors} } = useForm()
 
     const onSubmit = data =>{
         console.log(data)
@@ -11,7 +11,7 @@ const Login = () => {
     return (
         <div>
            <form onSubmit={handleSubmit(onSubmit)}>
-            
+
             <fieldset className="fieldset">
           <label className="label">Email</label>
           <input type="email"
@@ -24,9 +24,17 @@ const Login = () => {
          {required:true,minLength:8})}
            className="input" placeholder="Password" />
 
+           {
+            errors.password?.type === 'required' && <p className='text-red-500'>Password is required</p>
+           }
+           {
+            errors.password?.type ==='minLength' && <p className='text-red-500'>password need atleast 8 character !!</p>
+           }
+
           <div><a className="link link-hover">Forgot password?</a></div>
-          <button className="btn btn-neutral mt-4">Login</button>
+          
         </fieldset>
+        <button className="btn btn-neutral mt-4">Login</button>
            </form>
         </div>
     );
