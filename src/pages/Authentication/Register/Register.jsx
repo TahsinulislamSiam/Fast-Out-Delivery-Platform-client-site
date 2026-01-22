@@ -1,6 +1,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../../hook/useAuth';
+import { Link } from 'react-router';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
 
@@ -42,9 +44,11 @@ const Register = () => {
             errors.password?.type==='minLength' && <p className='text-red-500'>Password contain atleast 8 character</p>
            }
           <div><a className="link link-hover">Forgot password?</a></div>
-          <button className="btn btn-neutral mt-4">Login</button>
+          <button className="btn bg-lime-400 mt-4">Register</button>
         </fieldset>
+        <p><small>Already have an account?<Link className='btn btn-link text-lime-400' to='/login'>Login</Link></small></p>
        </form>
+       <SocialLogin></SocialLogin>
       </div>
     </div>
  
