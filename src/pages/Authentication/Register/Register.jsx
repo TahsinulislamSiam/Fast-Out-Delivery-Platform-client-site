@@ -23,8 +23,8 @@ const Register = () => {
 
     
     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-      <div className="card-body">
-              <h1 className="text-3xl font-bold">Create an Account!</h1>
+      <div className="card-body bg-lime-100 rounded-3xl">
+              <h1 className="text-3xl font-bold text-center">Create an Account!</h1>
 
        <form onSubmit={handleSubmit(onSubmit)} >
          <fieldset className="fieldset">
@@ -48,7 +48,7 @@ const Register = () => {
         </fieldset>
         <p><small>Already have an account?<Link className='btn btn-link text-lime-400' to='/login'>Login</Link></small></p>
        </form>
-       <SocialLogin></SocialLogin>
+       <SocialLogin></SocialLogin> 
       </div>
     </div>
  

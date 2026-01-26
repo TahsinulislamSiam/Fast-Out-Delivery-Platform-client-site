@@ -1,4 +1,5 @@
-[
+
+  [
   {
     "region": "Dhaka",
     "district": "Dhaka",
@@ -353,7 +354,7 @@
     "region": "Rangpur",
     "district": "Kurigram",
     "city": "Kurigram",
-    "covered_area": ["Nageshwari", "Bhurungamari", "Chilmari", "Ulipur"],
+    "covered_area": ["Nageshwari", "Bhurungamari","Kurigram", "Ulipur"],
     "status": "active",
     "flowchart": "https://example.com/kurigram-flowchart.png",
     "longitude": 89.65,
@@ -544,7 +545,7 @@
       "Sonatola",
       "Gabtali",
       "Sherpur",
-      "Shajahanpur"
+      "Bogura Sadar"
     ],
     "status": "active",
     "flowchart": "https://example.com/bogura-flowchart.png",
@@ -691,3 +692,5 @@
     "latitude": 23.9013
   }
 ]
+
+

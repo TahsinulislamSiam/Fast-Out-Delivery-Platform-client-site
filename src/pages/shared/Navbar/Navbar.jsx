@@ -4,12 +4,12 @@ import FastOutLogo from '../fastOutLogo/fastOutLogo';
 
 const Navbar = () => {
     const navItem = <>
-         <li className='hover:bg-lime-200'><NavLink>Home</NavLink></li>
-         <li className='hover:bg-lime-200'><NavLink>Service</NavLink></li>
-         <li className='hover:bg-lime-200'><NavLink>Coverage</NavLink></li>
-         <li className='hover:bg-lime-200'><NavLink>About us</NavLink></li>
-         <li className='hover:bg-lime-200'><NavLink>Pricing</NavLink></li>
-         <li className='hover:bg-lime-200'><NavLink>Vlogs</NavLink></li>
+         <li className='hover:bg-lime-200'><NavLink to="/">Home</NavLink></li>
+         <li className='hover:bg-lime-200'><NavLink to="/service">Service</NavLink></li>
+         <li className='hover:bg-lime-200'><NavLink to="/coverage">Coverage</NavLink></li>
+         <li className='hover:bg-lime-200'><NavLink to="/about">About us</NavLink></li>
+         <li className='hover:bg-lime-200'><NavLink to="pricing">Pricing</NavLink></li>
+         <li className='hover:bg-lime-200'><NavLink to="vlogs">Vlogs</NavLink></li>
     </>
     return (
         <div className="navbar bg-base-100 shadow-sm">
@@ -24,9 +24,9 @@ const Navbar = () => {
        {navItem}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">
+     
         <FastOutLogo></FastOutLogo>
-    </a>
+    
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu  menu-horizontal px-1">
@@ -34,8 +34,9 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end gap-3">
-    <a className="btn bg-emerald-100 rounded-2xl">Sign in</a>
-    <a className="btn bg-lime-300">LogIn</a>
+    <button className="btn bg-emerald-100 rounded-2xl">Sign in</button>
+    <button className="btn bg-lime-300">LogIn</button>
+
   </div>
 </div>
     );
