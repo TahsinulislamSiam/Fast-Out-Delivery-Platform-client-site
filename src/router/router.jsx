@@ -5,6 +5,9 @@ import AuthLayout from "../layouts/AuthLayout";
 import Register from "../pages/Authentication/Register/Register";
 import Login from "../pages/Authentication/Login/Login";
 import Coverage from "../pages/Coverage/Coverage";
+import PrivateRoute from "../routes/PrivateRoute";
+
+
 
 
 
@@ -23,9 +26,10 @@ export const router = createBrowserRouter([
           loader: async () =>{
             const res = await fetch("/CoverageData.json");
             return res.json();
-          }
-          
-        }
+          },
+           
+        },
+        
     ]
   },
   {

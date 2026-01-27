@@ -1,11 +1,11 @@
 import React from 'react';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import FastOutLogo from '../fastOutLogo/fastOutLogo';
 
 const Navbar = () => {
     const navItem = <>
          <li className='hover:bg-lime-200'><NavLink to="/">Home</NavLink></li>
-         <li className='hover:bg-lime-200'><NavLink to="/service">Service</NavLink></li>
+         <li className='hover:bg-lime-200'><NavLink to="/sendParcel">Send Parcel</NavLink></li>
          <li className='hover:bg-lime-200'><NavLink to="/coverage">Coverage</NavLink></li>
          <li className='hover:bg-lime-200'><NavLink to="/about">About us</NavLink></li>
          <li className='hover:bg-lime-200'><NavLink to="pricing">Pricing</NavLink></li>
@@ -34,9 +34,8 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end gap-3">
-    <button className="btn bg-emerald-100 rounded-2xl">Sign in</button>
-    <button className="btn bg-lime-300">LogIn</button>
-
+   <Link to="/login" className='btn bg-lime-300 rounded-2xl'>Login</Link>
+   <Link to="/register" className='btn bg-lime-300 rounded-2xl'>Sign In</Link>
   </div>
 </div>
     );
