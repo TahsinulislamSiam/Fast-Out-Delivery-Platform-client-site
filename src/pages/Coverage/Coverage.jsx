@@ -1,15 +1,21 @@
 import { useState } from "react";
 import CoverageMap from "../Coverage/CoverageMap";
-import coverageData from "../../assets/CoverageData.json";
+
+import { useLoaderData } from "react-router";
+
 
 const Coverage = () => {
+  const coverageData = useLoaderData();
   const [searchText, setSearchText] = useState("");
   const [selectedDistrict, setSelectedDistrict] = useState(null);
+
+
+ 
 
   const handleSearch = () => {
     const found = coverageData.find(
       item =>
-        item.district.toLowerCase() === searchText.toLowerCase()
+        item.district.toLowerCase().includes(searchText.toLowerCase())
     );
 
     if (found) {
@@ -43,7 +49,10 @@ const Coverage = () => {
       </div>
 
       {/* 🗺️ Map */}
-      <CoverageMap selectedDistrict={selectedDistrict} />
+      <CoverageMap
+        coverageData={coverageData}
+        selectedDistrict={selectedDistrict}
+       />
     </div>
   );
 };

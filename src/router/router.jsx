@@ -19,7 +19,12 @@ export const router = createBrowserRouter([
         },
         {
           path:'coverage',
-          Component:Coverage
+          Component:Coverage,
+          loader: async () =>{
+            const res = await fetch("/CoverageData.json");
+            return res.json();
+          }
+          
         }
     ]
   },

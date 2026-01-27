@@ -1,46 +1,47 @@
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import { useEffect, useRef } from "react";
-import coverageData from "../../assets/CoverageData.json";
 
 const FlyToDistrict = ({ district }) => {
   const map = useMap();
 
   useEffect(() => {
-    if (district) {
-      map.setView(
-        [district.latitude, district.longitude],
-        10, 
-        { animate: true }
-      );
-    }
+    if (!district) return;
+
+    map.flyTo(
+      [district.latitude, district.longitude],
+      10,
+      {
+        animate: true,
+        duration: 2, // smooth zoom
+      }
+    );
   }, [district, map]);
 
   return null;
 };
 
-const CoverageMap = ({ selectedDistrict }) => {
-  const popupRefs = useRef({});
+const ResizeFix = () => {
+  const map = useMap();
 
   useEffect(() => {
-    if (selectedDistrict) {
-      const ref = popupRefs.current[selectedDistrict.district];
-      if (ref) {
-        ref.openOn(ref._map);
-      }
-    }
+    setTimeout(() => {
+      map.invalidateSize();
+    }, 200);
+  }, [map]);
+
+  return null;
+};
+
+const CoverageMap = ({ coverageData, selectedDistrict }) => {
+  const popupRefs = useRef({});
+  const mapRef = useRef(null);
+
+  useEffect(() => {
+    if (!selectedDistrict) return;
+    if(!mapRef.current) return;
+    const popup = popupRefs.current[selectedDistrict.district];
+    if (popup) popup.openOn(popup._map);
   }, [selectedDistrict]);
-
-
-  const ResizeFix = () =>{
-    const map = useMap();
-
-    useEffect(()=>{
-        setTimeout(()=>{
-            map.invalidateSize();
-        },200);
-
-    },[map])
-  }
 
   return (
     <div className="h-[500px] rounded-xl overflow-hidden shadow-lg">
@@ -49,8 +50,12 @@ const CoverageMap = ({ selectedDistrict }) => {
         zoom={7}
         scrollWheelZoom={false}
         className="h-full w-full"
+        whenCreated = {(map)=>{
+          mapRef.current = map;
+        }}
       >
-        <ResizeFix></ResizeFix>
+        <ResizeFix />
+
         <TileLayer
           attribution="&copy; OpenStreetMap contributors"
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -58,12 +63,12 @@ const CoverageMap = ({ selectedDistrict }) => {
 
         <FlyToDistrict district={selectedDistrict} />
 
-        {coverageData.map((item) => (
+        {coverageData.map(item => (
           <Marker
             key={item.district}
             position={[item.latitude, item.longitude]}
           >
-            <Popup ref={(ref) => (popupRefs.current[item.district] = ref)}>
+            <Popup ref={ref => (popupRefs.current[item.district] = ref)}>
               <div>
                 <h3 className="font-bold">{item.district}</h3>
                 <p><b>Region:</b> {item.region}</p>
