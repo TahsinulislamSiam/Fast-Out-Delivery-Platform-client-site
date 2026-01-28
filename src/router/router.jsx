@@ -6,6 +6,7 @@ import Register from "../pages/Authentication/Register/Register";
 import Login from "../pages/Authentication/Login/Login";
 import Coverage from "../pages/Coverage/Coverage";
 import PrivateRoute from "../routes/PrivateRoute";
+import SendParcel from "../pages/SendParcel/SendParcel";
 
 
 
@@ -29,6 +30,14 @@ export const router = createBrowserRouter([
           },
            
         },
+        {
+          path:'sendparcel',
+          element: <PrivateRoute><SendParcel></SendParcel></PrivateRoute>,
+           loader: async () =>{
+            const res = await fetch("/CoverageData.json");
+            return res.json();
+          },
+        }
         
     ]
   },
